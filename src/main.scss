@@ -26,13 +26,22 @@
 }
 
 
+.Header {
+  margin: 1rem;
+}
+
+.Footer {
+  margin: 1rem;
+}
 .Grid {
   display: flex;
   flex-wrap: wrap;
 }
-
+.title {
+  margin: 0em;
+}
 .homeCard  {
-  background-color: lightslategrey;
+  background-color: #F2F2F2;
   min-height: 160px;
   width: 200px;
   margin: 1rem;
