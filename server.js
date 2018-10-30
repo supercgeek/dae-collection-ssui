@@ -23,5 +23,5 @@ app.get('/api', async (req, res) => {
 app.use(bundler.middleware())
 
 app.listen(PORT, () => {
-  console.log(`listening on http://localhost:${PORT}`)
+  console.log(`listening on the port: http://localhost:${PORT}`)
 })

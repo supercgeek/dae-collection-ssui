@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .App {
   text-align: center;
 }
@@ -24,6 +25,20 @@
   to { transform: rotate(360deg); }
 }
 
+
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.homeCard  {
+  background-color: lightslategrey;
+  min-height: 160px;
+  width: 200px;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -36,7 +51,7 @@ button {
   color: #87677B;
 }
 
-@charset "UTF-8";
+
 /*!
  *
  * bttn.css - https://ganapativs.github.io/bttn.css
@@ -48,7 +63,9 @@ button {
  * Copyright (c) 2016 Ganapati V S (@ganapativs)
  *
  */
-/* standalone - .bttn-slant */
+/* standalone - .bttn-slant 
+*/
+
 .bttn-default {
   color: #fff;
 }
