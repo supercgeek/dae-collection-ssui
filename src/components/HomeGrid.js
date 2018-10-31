@@ -4,7 +4,8 @@ import Modal from './Modal';
 
 export default class Grid extends React.Component {
     state = {
-      records: []
+      records: [],
+      currId: null
     }
   
     async componentDidMount() {
@@ -18,13 +19,32 @@ export default class Grid extends React.Component {
       const { records } = json
       this.setState({ records })
     }
+
+    // renderModal() {
+    //   if (this.state.currId !== null) {
+    //     return (
+    //       <Modal />
+    //     )  {/* {this.renderModal()} */}
+    //   }
+    // }
+
+    // selectItem() {
+    //   currId: null
+    // }
   
     render() {
       let { records } = this.state
+      // var cards = []
+      // for (let i = 0; i < records.length; i++) { // http://marybethkery.com/SSUI-SimpleReactApp/
+      //   let record = records[i]
+      //   cards.push(<Card onClick = {this.selectItem.bind(this, i)} key = {i} value={record} />)
+      // }
+      
       return (
         <div>
-          <Modal className="Modal" />
+      
           <main className="Grid">
+            {/* {cards}     */}
             {records && records.length > 0 ? records.map((record, index) =>
              <Card key = {index} value={record} /> ) : <p>Double-check that you have added your API key to .env.</p>}
           </main>
@@ -43,7 +63,8 @@ export default class Grid extends React.Component {
         id:          props.value.id,
         name:        props.value['fields'].Name,
         creatorName: props.value['fields'].CreatorNames,
-        companyName: props.value['fields'].CompanyName
+        companyName: props.value['fields'].CompanyName,
+        cardOpen:    false
       }
 
       if (props.value['fields'].Picture) {
@@ -51,16 +72,15 @@ export default class Grid extends React.Component {
       }
 
       // Handle Events
-      this.handleClick = this.handleClick.bind(this);
+      // this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
-      console.log("first _>")
-      
-      //{<GridModal value={this.state.id}/>}
+
+    selectItem() {
+      this.state.cardOpen = true
+
     }
-  
-  
+
     render() {
 
       // Title of Authoring Environment
@@ -82,12 +102,15 @@ export default class Grid extends React.Component {
       }
 
       return (
-        <div className="homeCard" onClick={this.handleClick}>
+        <div className="homeCard" onClick = {this.selectItem.bind(this, this.state.id)}>
         {photoThumbnail}
         {environmentTitle}
+        
         {creatorNames}
         {companyNames}
+        
         </div>
+        
       )
     }
   }
