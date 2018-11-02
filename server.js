@@ -12,6 +12,7 @@ const airtable = new Airtable({
 })
 
 app.get('/api', async (req, res) => {
+
   let data = await airtable
     .base(process.env.BASE)
     .table(process.env.TABLE)
@@ -19,6 +20,15 @@ app.get('/api', async (req, res) => {
 
   res.json(data)
 })
+
+app.get('/api2/:idReference', async (req, res) => {
+  let idToLookup  = req.params.idReference
+  let searchRes = await airtable
+    .retrieve(idToLookup)
+    
+  res.json(searchRes) 
+})
+
 
 app.use(bundler.middleware())
 
