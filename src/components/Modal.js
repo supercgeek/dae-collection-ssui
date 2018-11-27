@@ -29,8 +29,7 @@ export default class Modal extends React.Component {
 
     async updateModal(uId) {
       var searchRoute = /api2/ + uId
-
-      console.log(searchRoute)
+      // console.log(searchRoute)
       let resp = await fetch(searchRoute, {
         method: 'GET',
         headers: {
@@ -48,7 +47,7 @@ export default class Modal extends React.Component {
     }
 
     modalBuild() {
-      console.log(this.state.record)
+      //console.log(this.state.record)
       if (this.state.records != null) {
         return (
           <h3>...</h3>

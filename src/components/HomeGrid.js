@@ -29,7 +29,7 @@ export default class Grid extends React.Component {
     }    
 
     cardClick(clickedCardIndex) {
-      //console.log("just clicked: " + clickedCardIndex)
+      // console.log("just clicked: " + clickedCardIndex)
       this.setState({
           cardOpen: true,  
           currId: clickedCardIndex  
@@ -64,7 +64,7 @@ export default class Grid extends React.Component {
               <Card
                 key   = {index}
                 value = {record}
-                onClick={() => this.cardClick(record.id)}
+                //onClick={} // <- here I need something about URL routing () => this.cardClick(record.id)
               /> ) : <p>Double-check that you have added your API key to .env.</p>}
           </main>
         </div>
@@ -119,7 +119,9 @@ export default class Grid extends React.Component {
       return (
         <div
         className="homeCard"
-        onClick={() => this.props.onClick()}
+        // Something Here about Routing     
+        
+        /// onClick={() => this.props.onClick()}
         >
         {photoThumbnail}
         {environmentTitle}
