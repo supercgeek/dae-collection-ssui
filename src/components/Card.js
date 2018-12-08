@@ -1,5 +1,6 @@
 import React from 'react'
 import 'whatwg-fetch'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class Card extends React.Component {
     constructor(props) {
@@ -44,19 +45,22 @@ export default class Card extends React.Component {
       if (this.state.companyName) {
         var companyNames = <p>{this.state.companyName.join(', ')}</p>
       }
-  
+      const specificLink = "/" + this.state.id;
+
       return (
         <div
           className="homeCard"
         // Something Here about Routing     
         // onClick={() => this.props.onClick()}
         >
+          <Link className="cardLinkC" to={specificLink}>
           {photoThumbnail}
           {environmentTitle}
   
           {creatorNames}
           {companyNames}
   
+          </Link>
         </div>
   
       )

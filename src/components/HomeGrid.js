@@ -1,6 +1,7 @@
 import React from 'react'
 import 'whatwg-fetch'
 import Card from  './Card.js'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class Grid extends React.Component {
   constructor(props) {
@@ -37,7 +38,6 @@ export default class Grid extends React.Component {
             <Card
               key={index}
               value={record}
-            //onClick={} // <- here I need something about URL routing () => this.cardClick(record.id)
             />) : <p>Double-check that you have added your API key to .env.</p>}
         </main>
       </div>
