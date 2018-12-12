@@ -21,11 +21,13 @@ app.get('/api', async (req, res) => {
   res.json(data)
 })
 
+// For Getting a Specific Record
 app.get('/api2/:idReference', async (req, res) => {
+  
   let idToLookup  = req.params.idReference
+
   let searchRes = await airtable
     .retrieve(idToLookup)
-    
   res.json(searchRes) 
 })
 
